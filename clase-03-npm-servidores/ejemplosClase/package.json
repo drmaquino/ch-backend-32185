@@ -1,0 +1,9 @@
+{
+  "name": "ejemplosclase",
+  "version": "1.0.0",
+  "description": "ejemplo de la clase 3",
+  "main": "main.js",
+  "scripts": {},
+  "author": "coderhouse",
+  "license": "ISC"
+}
