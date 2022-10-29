@@ -1,0 +1,16 @@
+{
+  "name": "ejemplosdeclase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ejemploRest.js",
+  "scripts": {
+    "start": "node ejemploRest.js",
+    "start:dev": "nodemon ejemploRest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,0 +1,15 @@
+Dada la siguiente constante que almacena una frase
+
+const frase = 'Hola mundo cómo están'
+
+Realizar una aplicación de servidor node.js con express que contenga los siguientes endpoints get
+
+1) '/api/frase' -> devuelve la frase en forma completa
+2) '/api/letras/:num  -> devuelve por número de orden la letra dentro de esa frase (1 es la primera letra)
+3) '/api/palabras/:num  -> devuelve por número de orden la palabra dentro de esa frase (1 es la primera palabra)
+
+En el caso del punto 2 y 3, si se ingresa un parámetro no numérico, o que no esté en el rango entre 1 y la cantidad total de letras ó palabras segun el caso, el servidor debe devolver un objeto con la descripción de dicho error. Por ejemplo:
+{ error: "El parámetro no es un número" } cuando el parámetro no es numérico
+{ error: "El parámetro está fuera de rango" } cuando no está entre 1 y el total de letras/palabras
+
+El servidor escuchará peticiones en el puerto 8080 y mostrará en la consola un mensaje de conexión que muestre dicho puerto, junto a los mensajes de error si ocurriesen.

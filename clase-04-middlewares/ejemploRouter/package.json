@@ -1,0 +1,15 @@
+{
+  "name": "ejemplosdeclase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ejemploRest.js",
+  "scripts": {
+    "start": "node ejemploRouter.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
