@@ -1,5 +1,4 @@
 const express = require('express')
-const multer = require('multer')
 
 const app = express()
 
@@ -8,6 +7,8 @@ app.use(express.static('public'))
 
 /* ------------------------------------------------------ */
 /* Multer config */
+const multer = require('multer')
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads')
@@ -16,16 +17,19 @@ const storage = multer.diskStorage({
     cb(null, `${Date.now()}-${file.originalname}`)
   }
 })
+
 const upload = multer({ storage: storage })
+
+const middlewareDeImagenes = upload.single('miArchivo')
 
 /* ------------------------------------------------------ */
 /* Rutas */
-app.post('/subir', upload.single('miArchivo'), (req, res, next) => {
+
+app.post('/imagenes', middlewareDeImagenes, (req, res) => {
   const file = req.file
   if (!file) {
-    const error = new Error('Error subiendo archivo')
-    error.httpStatusCode = 400
-    return next(error)
+    res.status(400)
+    return res.send('Error subiendo archivo')
   }
   res.send(`Archivo <b>${file.originalname}</b> subido exitosamente`)
 })

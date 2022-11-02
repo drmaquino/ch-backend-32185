@@ -1,19 +1,17 @@
-const uploadFileController = (req, res, next) => {
+const uploadFileController = (req, res) => {
     const file = req.file
     if (!file) {
-        const error = new Error('Please upload a file')
-        error.httpStatusCode = 400
-        return next(error)
+        res.status(400)
+        return res.send('Please upload a file')
     }
     res.send(file)
 }
 
-const uploadFilesController = (req, res, next) => {
+const uploadFilesController = (req, res) => {
     const files = req.files
     if (!files || files.length == 0) {
-        const error = new Error('Please upload files')
-        error.httpStatusCode = 400
-        return next(error)
+        res.status(400)
+        return res.send('Please upload files')
     }
     res.send(files)
 }
