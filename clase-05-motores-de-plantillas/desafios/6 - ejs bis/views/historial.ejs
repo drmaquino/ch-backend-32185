@@ -1,0 +1,27 @@
+<h2 style="color:crimson;">Historial</h2>
+
+<% const hayPersonas = personas.length > 0; %>
+<% if(hayPersonas){ %>
+<table>
+    <tr style="color: blueviolet;">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </tr>
+    <% for (const persona of personas) {%>
+    <tr>
+        <td>
+            <%=persona.nombre%>
+        </td>
+        <td>
+            <%=persona.apellido%>
+        </td>
+        <td>
+            <%=persona.edad%>
+        </td>
+    </tr>
+    <%};%>
+</table>
+<% } else { %>
+<h3>no se encontraron datos</h3>
+<% } %>

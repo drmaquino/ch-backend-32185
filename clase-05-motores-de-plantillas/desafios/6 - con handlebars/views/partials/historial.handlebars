@@ -1,0 +1,26 @@
+<h2 style="color:crimson;">Historial</h2>
+
+{{#if hayPersonas}}
+<table>
+    <tr style="color: blueviolet;">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </tr>
+    {{#each personas}}
+    <tr>
+        <td>
+            {{this.nombre}}
+        </td>
+        <td>
+            {{this.apellido}}
+        </td>
+        <td>
+            {{this.edad}}
+        </td>
+    </tr>
+    {{/each}}
+</table>
+{{else}}
+<h3>no se encontraron datos</h3>
+{{/if}}

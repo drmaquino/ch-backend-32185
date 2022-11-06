@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+  <h1 style="color:blue;">
+    <%-titulo%>
+  </h1>
+  <span><%=min+" "%></span>
+  <% const estilo = " width:50%;height:40px"; %>
+  <meter value=<%=nivel%> min=<%=min%> max=<%=max%> style="<%=estilo%>"></meter>
+  <span><%=" "+max%></span>
+</body>

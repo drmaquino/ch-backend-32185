@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- incluir handlebars desde el CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <title>Handlebars</title>
+</head>
+
+<body>
+    <span></span> <!-- para inyectar el resultado -->
+    <script>
+        const crearHtmlConDatos = Handlebars.compile('<h1>{{nombre}}</h1>'); // compila la plantilla
+        const html = crearHtmlConDatos({ nombre: 'coder' }); // genera el html
+        document.querySelector('span').innerHTML = html; // inyecta el resultado en la vista
+    </script>
+</body>
+
+</html>

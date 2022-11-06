@@ -1,0 +1,2 @@
+<h1>hola, {{nombre}} {{apellido}}!!</h1>
+<p>Gracias por visitarnos {{cantVisitas}} veces :)</p>

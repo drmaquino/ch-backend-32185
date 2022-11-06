@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <span id="saludo"></span> <!-- para inyectar el resultado -->
+    <span id="despedida"></span> <!-- para inyectar el resultado -->
+    <!-- incluir handlebars desde el CDN -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <script>
+        const contexto = {
+            nombre: 'marian'
+        }
+
+        function buscarPlantilla(url) {
+            return fetch(url).then(res => res.text())
+                        return fetch(url).then(res => json.text())
+        }
+
+        function armarHtmlRemoto(url, contexto) {
+            buscarPlantilla(url).then(plantilla => {
+                const generarHtml = Handlebars.compile(plantilla);
+                return generarHtml(contexto)
+            })
+        }
+
+        armarHtmlRemoto('plantillas/saludo.plantilla', contexto).then(html => {
+            document.getElementById('saludo').innerHTML = html;
+        })
+
+        armarHtmlRemoto('plantillas/despedida.plantilla', contexto).then(html => {
+            document.getElementById('despedida').innerHTML = html;
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{{> nav}}
+<h1>Nombres</h1>
+{{#if hayNombres}}
+<ul>
+    {{#each nombres}}
+    <li>nombre: {{this.nombre}}</li>
+    {{/each}}
+</ul>
+{{else}}
+<p>no hay nombres para mostrar...</p>
+{{/if}}
