@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ingreso de Productos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+        integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="jumbotron">
+            <h1>Ingrese Producto</h1>
+            <br>
+
+            <form id="formAgregarProducto">
+                <!-- Campo nombre del producto -->
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" class="form-control" type="text" name="title" required>
+                </div>
+
+                <!-- Campo precio del producto -->
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input id="precio" class="form-control" type="number" step="0.01" name="price" required>
+                </div>
+
+                <!-- Campo url de la foto del producto -->
+                <div class="form-group">
+                    <label for="foto">Foto URL</label>
+                    <input id="foto" class="form-control" type="url" name="thumbnail">
+                </div>
+
+                <!-- Botón de envío -->
+                <button class="btn btn-success mt-3">Enviar</button>
+            </form>
+            <br>
+            <div id="productos"></div>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Centro de Mensajes</h1>
+            <br>
+
+            <input type="text" id="inputUsername" class="form-control w-50 my-2 mr-2" placeholder="Ingresá tu email">
+
+            <hr>
+
+            <div id="mensajes"></div>
+
+            <form id="formPublicarMensaje" class="form-inline" autocomplete="off">
+                <div class="form-group">
+                    <input disabled id="inputMensaje" type="text" class="form-control my-2 mr-2"
+                        placeholder="Ingresá un mensaje...">
+                    <button disabled id="btnEnviar" type="submit" class="btn btn-primary my-2">Enviar!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

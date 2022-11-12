@@ -1,0 +1,26 @@
+<style>
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+</style>
+
+{{#if personas.length}}
+<h2>Lista de Personas</h2>
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+        {{#each personas}}
+        <tr>
+            <td>{{this.nombre}}</td>
+            <td>{{this.apellido}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{ else }}
+<h3 class="alert alert-warning">No hay personas</h3>
+{{/if}}
