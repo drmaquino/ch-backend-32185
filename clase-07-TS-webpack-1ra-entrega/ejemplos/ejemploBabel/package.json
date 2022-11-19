@@ -1,0 +1,17 @@
+{
+  "name": "ejemplobabel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./origen.js -o ./destino.js",
+    "start": "npm run build && node ./destino.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.16.0"
+  }
+}

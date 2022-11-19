@@ -1,0 +1,17 @@
+{
+  "name": "ejemplobabel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "color.js5.js",
+  "scripts": {
+    "build": "babel color.js -o color.js5.js",
+    "start": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/preset-env": "^7.15.6"
+  }
+}

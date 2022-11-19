@@ -1,0 +1,17 @@
+{
+  "name": "ejemplotypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "color.js",
+  "scripts": {
+    "build": "tsc color.ts",
+    "conv2": "tsc color.ts -w --noEmitOnError",
+    "start": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.1.5"
+  }
+}
