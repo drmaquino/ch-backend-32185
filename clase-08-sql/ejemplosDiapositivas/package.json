@@ -1,0 +1,14 @@
+{
+  "name": "ejemplos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "createTable.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^2.0.0",
+    "mysql2": "^2.3.3"
+  }
+}

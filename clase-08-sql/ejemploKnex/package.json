@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "ejemploknex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "inicializar": "node crearTablas.js",
+    "start": "npm run inicializar && node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "knex": "^2.0.0",
+    "mysql2": "^2.3.3"
+  }
+}
