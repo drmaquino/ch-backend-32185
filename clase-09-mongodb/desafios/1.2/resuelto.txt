@@ -1,0 +1,31 @@
+λ mongo
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("b9cb02cb-71f1-4d4f-8517-996d424788dc") }
+MongoDB server version: 4.4.4
+
+> use mibase
+switched to db mibase
+
+> db
+mibase
+
+> db.usuarios.insert([{nombre: 'Juan', apellido: 'Perez', edad: 23, email: 'jp@gmail.com'},{nombre: 'Pedro', apellido: 'Mei', edad: 21, email: 'pm@gmail.com'},{nombre: 'Juana', apellido: 'Suarez', edad: 25, email: 'js@gmail.com'}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 3,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+
+> show collections                                                                                                 
+usuarios                                                                                                              
+
+> db.usuarios.find()
+{ "_id" : ObjectId("603d7020985e98953141aaa9"), "nombre" : "Juan", "apellido" : "Perez", "edad" : 23, "email" : "jp@gmail.com" }
+{ "_id" : ObjectId("603d7020985e98953141aaaa"), "nombre" : "Pedro", "apellido" : "Mei", "edad" : 21, "email" : "pm@gmail.com" }
+{ "_id" : ObjectId("603d7020985e98953141aaab"), "nombre" : "Juana", "apellido" : "Suarez", "edad" : 25, "email" : "js@gmail.com" }

@@ -1,0 +1,92 @@
+----------------------------------------------------------------------------------------------------------------
+
+mongod --dbpath "base"
+
+----------------------------------------------------------------------------------------------------------------
+
+λ mongo
+
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("c34a42f5-7f08-431f-8ca9-0968fac12696") }
+MongoDB server version: 4.4.4
+
+> use admin
+
+switched to db admin
+
+> db
+
+admin
+
+> db.createUser({
+    user: "encargado",
+    pwd: "qwerty123",
+    roles: [
+         { role: "readWrite", db: "empresa"}
+    ]
+})
+
+// resultado:
+
+Successfully added user: {
+    "user" : "encargado",
+    "roles" : [
+        {
+            "role" : "readWrite",
+            "db" : "empresas"
+        }
+    ]
+}
+
+>
+
+----------------------------------------------------------------------------------------------------------------
+
+mongod --dbpath "base" --auth
+
+----------------------------------------------------------------------------------------------------------------
+
+λ mongo -u "encargado" -p "qwerty123"
+
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("a24df972-a182-49e2-9472-bb95144c3ff7") }
+MongoDB server version: 4.4.4
+
+> show dbs
+
+empresa  0.000GB
+
+> db
+
+test
+
+> use empresa
+
+switched to db empresa
+> show collections
+
+articulos
+clientes
+
+> db.clientes.find({},{nombre:1,_id:0})
+
+{ "nombre" : "Cecilia" }
+{ "nombre" : "Pedro" }
+{ "nombre" : "Ana" }
+{ "nombre" : "Pablo" }
+{ "nombre" : "Lucia" }
+{ "nombre" : "Fede" }
+
+----------------------------------------------------------------------------------------------------------------
+
+λ mongo -u "encargado" -p "pepe123"
+
+MongoDB shell version v4.4.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Error: Authentication failed. :
+connect@src/mongo/shell/mongo.js:374:17
+@(connect):2:6
+exception: connect failed
+exiting with code 1

@@ -1,0 +1,37 @@
+[
+  {
+    actividad: "ping pong",
+    diaSemana: ["lunes", "martes", "miercoles"]
+  },
+  {
+    actividad: "futbol",
+    diaSemana: ["martes", "miercoles", "jueves"]
+  },
+  {
+    actividad: "voley",
+    diaSemana: ["lunes", "miercoles", "sabados", "domingos" ]
+  }
+]
+
+db.actividades.find({ diaSemana: { $all: [ "lunes", "miercoles" ] }})
+
+{
+	"_id" : ObjectId("616907dd9046873fcb235923"),
+	"actividad" : "ping pong",
+	"diaSemana" : [
+		"lunes",
+		"martes",
+		"miercoles"
+	]
+}
+{
+	"_id" : ObjectId("616907dd9046873fcb235925"),
+	"actividad" : "voley",
+	"diaSemana" : [
+		"lunes",
+		"miercoles",
+		"sabados",
+		"domingos"
+	]
+}
+

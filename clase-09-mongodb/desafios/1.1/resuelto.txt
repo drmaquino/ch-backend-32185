@@ -1,0 +1,64 @@
+λ mongo
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("3078e991-4f3f-424f-9232-3667a42b4f6d") }
+MongoDB server version: 4.4.4
+
+> show dbs
+admin    0.000GB
+config   0.000GB
+local    0.000GB
+sistema  0.000GB
+>
+
+> use sistema
+switched to db sistema
+
+> db
+sistema
+
+> db.usuarios.insert({nombre: 'Juan', edad: 23})
+WriteResult({ "nInserted" : 1 })
+
+> db.usuarios.find()
+{ "_id" : ObjectId("603d6c5c8417a398675ff7d8"), "nombre" : "Juan", "edad" : 23 }
+
+> show collections   
+usuarios             
+
+> db.usuarios.insert({nombre: 'Cecilia', edad: 27})
+WriteResult({ "nInserted" : 1 })
+
+> db.usuarios.insert({nombre: 'Pedro', edad: 29})
+WriteResult({ "nInserted" : 1 })
+
+> db.usuarios.insert({nombre: 'Ana', edad: 24})
+WriteResult({ "nInserted" : 1 })
+
+> db.usuarios.find()
+{ "_id" : ObjectId("603d6c5c8417a398675ff7d8"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d6c658417a398675ff7d9"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d6c658417a398675ff7da"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d6c658417a398675ff7db"), "nombre" : "Ana", "edad" : 24 }
+
+> db.productos.insert({nombre: 'prod1', precio: 12.34, stock: 25})
+WriteResult({ "nInserted" : 1 })
+
+> db.productos.insert({nombre: 'prod2', precio: 34.56, stock: 27})
+WriteResult({ "nInserted" : 1 })
+
+> db.productos.insert({nombre: 'prod3', precio: 89.12, stock: 43})
+WriteResult({ "nInserted" : 1 })
+
+> db.productos.insert({nombre: 'prod4', precio: 43.65, stock: 76})
+WriteResult({ "nInserted" : 1 })
+
+> show collections
+productos
+usuarios
+
+> db.productos.find()
+{ "_id" : ObjectId("603d6c718417a398675ff7dc"), "nombre" : "prod1", "precio" : 12.34, "stock" : 25 }
+{ "_id" : ObjectId("603d6c718417a398675ff7dd"), "nombre" : "prod2", "precio" : 34.56, "stock" : 27 }
+{ "_id" : ObjectId("603d6c718417a398675ff7de"), "nombre" : "prod3", "precio" : 89.12, "stock" : 43 }
+{ "_id" : ObjectId("603d6c718417a398675ff7df"), "nombre" : "prod4", "precio" : 43.65, "stock" : 76 }

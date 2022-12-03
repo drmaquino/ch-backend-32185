@@ -1,0 +1,139 @@
+λ mongo
+
+> show dbs
+
+empresa     0.000GB
+admin       0.000GB
+config      0.000GB
+local       0.000GB
+
+> use empresa
+
+switched to db empresa
+
+> db
+
+empresa
+
+> db.clientes.insertMany([
+    {nombre: 'Pablo', edad: 25},
+    {nombre: 'Juan', edad: 22},
+    {nombre: 'Lucia', edad: 25},
+    {nombre: 'Juan', edad: 29},
+    { nombre : 'Fede', edad : 35 }
+])
+
+{
+    "acknowledged" : true,
+    "insertedIds" : [
+        ObjectId("60a5c2906e0335ba414ef1c2"),
+        ObjectId("60a5c2906e0335ba414ef1c3"),
+        ObjectId("60a5c2906e0335ba414ef1c4"),
+        ObjectId("60a5c2906e0335ba414ef1c5"),
+        ObjectId("60a5c2906e0335ba414ef1c6")
+    ]
+}
+
+> db.clientes.find().sort({edad: -1})
+
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecbb"), "nombre" : "Fede", "edad" : 35 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb7"), "nombre" : "Pablo", "edad" : 25 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb9"), "nombre" : "Lucia", "edad" : 25 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b364"), "nombre" : "Ana", "edad" : 24 }
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+
+> db.clientes.find().sort({edad: 1}).limit(1)
+
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+
+> db.clientes.find().sort({edad: 1}).skip(1).limit(1)
+
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+
+> db.clientes.find({nombre: 'Juan'})
+
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+
+> db.clientes.find({nombre: 'Juan', edad: 29})
+
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+
+> db.clientes.find({$or:[{nombre: 'Juan'},{nombre: 'Lucia'}]})
+
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb9"), "nombre" : "Lucia", "edad" : 25 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+
+> db.clientes.find({edad:{$gt:25}})
+
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecbb"), "nombre" : "Fede", "edad" : 35 }
+
+> db.clientes.find({edad:{$lte:25}})
+
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b364"), "nombre" : "Ana", "edad" : 24 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb7"), "nombre" : "Pablo", "edad" : 25 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb9"), "nombre" : "Lucia", "edad" : 25 }
+
+> db.clientes.find({edad:{$ne:25}})
+
+{ "_id" : ObjectId("603d77e5c7f5f938c247b361"), "nombre" : "Juan", "edad" : 23 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b364"), "nombre" : "Ana", "edad" : 24 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb8"), "nombre" : "Juan", "edad" : 22 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecbb"), "nombre" : "Fede", "edad" : 35 }
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecbb"), "nombre" : "Fede", "edad" : 35 }
+
+> db.clientes.updateOne({nombre:'Fede'},{$set: {edad:36}})
+
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+
+> db.clientes.updateMany({edad:25},{$set: {edad:26}})
+
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+
+> db.clientes.find({edad:{$gte:26,$lte:35}})
+
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb7"), "nombre" : "Pablo", "edad" : 26 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb9"), "nombre" : "Lucia", "edad" : 26 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecba"), "nombre" : "Juan", "edad" : 29 }
+
+> db.clientes.deleteMany({nombre:'Juan'})
+
+{ "acknowledged" : true, "deletedCount" : 3 }
+
+> db.clientes.find()
+
+{ "_id" : ObjectId("603d7812c7f5f938c247b362"), "nombre" : "Cecilia", "edad" : 27 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b363"), "nombre" : "Pedro", "edad" : 29 }
+{ "_id" : ObjectId("603d7812c7f5f938c247b364"), "nombre" : "Ana", "edad" : 24 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb7"), "nombre" : "Pablo", "edad" : 26 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecb9"), "nombre" : "Lucia", "edad" : 26 }
+{ "_id" : ObjectId("603d7c426dc63f4d7297ecbb"), "nombre" : "Fede", "edad" : 36 }
