@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "nodefirebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^9.5.0"
+  }
+}
