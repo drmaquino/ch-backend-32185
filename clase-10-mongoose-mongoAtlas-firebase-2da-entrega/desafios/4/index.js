@@ -18,7 +18,6 @@ const UsuariosDAO = mongoose.model('usuarios', usuarioSchema)
 /* ------------------------------------------------------------------ */
 
 try {
-    // const URL = 'mongodb+srv://daniel:daniel123@misdatos.fs00f.mongodb.net/ecommerce?retryWrites=true&w=majority'
     const URL = 'mongodb://localhost/ecommerce'
     await mongoose.connect(URL, {
         serverSelectionTimeoutMS: 5000,
