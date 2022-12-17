@@ -1,0 +1,2 @@
+Desnormalizar el objeto del ejercicio anterior, imprimiéndolo por consola junto a su longitud.
+Comparar el objeto original con el desnormalizado.

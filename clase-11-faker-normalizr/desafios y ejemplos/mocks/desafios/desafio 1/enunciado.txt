@@ -1,0 +1,15 @@
+Desarrollar un servidor basado en Node.js y express que responda en la ruta '/test' un array de 10 objetos con el siguiente formato:
+
+{
+    nombre: '',
+    apellido: '',
+    color: ''
+}
+
+Los objetos generados tendrán un valor aleatorio para cada uno de sus campos obtenido de los siguientes arrays:
+
+const nombres = ['Luis', 'Lucía', 'Juan', 'Augusto', 'Ana']
+const apellidos = ['Pieres', 'Cacurri', 'Bezzola', 'Alberca', 'Mei']
+const colores = ['rojo', 'verde', 'azul', 'amarillo', 'magenta']
+
+Con cada request se obtendrán valores diferentes.
