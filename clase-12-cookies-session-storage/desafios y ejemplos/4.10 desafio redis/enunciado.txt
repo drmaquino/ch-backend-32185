@@ -1,0 +1,12 @@
+﻿Poner en marcha el servidor de base de datos Redis, y conectar su cliente CLI.
+
+Realizar las siguientes tareas:
+1) Listar la información total en la base.
+2) Crear 5 claves sin tiempo de expiración que contengan nombres de productos.
+3) Listar nuevamente toda la información.
+4) Mostrar el contenido de cada una de las claves de productos.
+5) Agregar un producto más, fijando un tiempo de vida de 30 segundos.
+6) Listar el nuevo producto y su tiempo de expiración.
+7) Verificar que al transcurrir ese tiempo, el producto desaparezca del listado general.
+
+

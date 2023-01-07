@@ -1,0 +1,21 @@
+mini tuto - redis con docker:
+
+descargar imagen:
+docker pull redis
+
+crear contenedor (e iniciar servicio):
+docker run --name drm-redis -p 6379:6379 -d redis 
+
+('drm-redis' es un nombre arbitrario)
+
+detener servicio:
+docker stop drm-redis
+
+iniciar servicio:
+docker start drm-redis
+
+usar cliente por terminal:
+docker exec -it drm-redis bash 
+docker# redis-cli
+
+(fuente: https://dev.to/renanmaringolo/adding-redis-easily-with-docker-158f)

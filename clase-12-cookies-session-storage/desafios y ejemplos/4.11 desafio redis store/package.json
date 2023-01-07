@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "ejemplo-session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "redis": "^4.1.0",
+    "connect-redis": "^6.1.3"
+  }
+}

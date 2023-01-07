@@ -1,0 +1,62 @@
+﻿127.0.0.1:6379> keys *
+(empty list or set)
+127.0.0.1:6379> set producto1 mesa
+OK
+127.0.0.1:6379> set producto2 alfombra
+OK
+127.0.0.1:6379> set producto3 armario
+OK
+127.0.0.1:6379> set producto4 perchero
+OK
+127.0.0.1:6379> set producto5 lampara
+OK
+127.0.0.1:6379> keys *
+1) "producto3"
+2) "producto4"
+3) "producto1"
+4) "producto5"
+5) "producto2"
+127.0.0.1:6379> get producto1
+"mesa"
+127.0.0.1:6379> get producto2
+"alfombra"
+127.0.0.1:6379> get producto3
+"armario"
+127.0.0.1:6379> get producto4
+"perchero"
+127.0.0.1:6379> get producto5
+"lampara"
+127.0.0.1:6379> set producto6 televisor EX 30
+OK
+127.0.0.1:6379> get producto6
+"televisor"
+127.0.0.1:6379> keys *
+1) "producto3"
+2) "producto4"
+3) "producto1"
+4) "producto6"
+5) "producto5"
+6) "producto2"
+127.0.0.1:6379> TTL producto6
+(integer) 17
+127.0.0.1:6379> TTL producto6
+(integer) 12
+127.0.0.1:6379> TTL producto6
+(integer) 11
+127.0.0.1:6379> TTL producto6
+(integer) 6
+127.0.0.1:6379> TTL producto6
+(integer) 4
+127.0.0.1:6379> TTL producto6
+(integer) 3
+127.0.0.1:6379> TTL producto6
+(integer) 2
+127.0.0.1:6379> TTL producto6
+(integer) 1
+127.0.0.1:6379> keys *
+1) "producto3"
+2) "producto4"
+3) "producto1"
+4) "producto5"
+5) "producto2"
+127.0.0.1:6379>
